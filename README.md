@@ -14,3 +14,9 @@ After creating those 3 YAML Files then i will apply those files in Kubernetes Cl
 After run those command it will create the Deployment, Service, and Ingress resources in the Kubernetes cluster.
 
 Helm:
+First i have to installed Helm on my kubernetes system and Then, i create a new Helm chart by the command
+ helm create nodejs-app-chart
+After creating 'nodejs-app-chart' directory, then go to the 'values.yaml' file to define parameters for the Node.js application. This values.yaml file allows you to customize parameters such as the Docker image, replica count, service configuration, and Ingress configuration.
+For Packaging and Install the Helm Chart we have to run those commands
+ helm package nodejs-app-chart
+ helm install ashu-nodejs-app ./nodejs-app-chart-0.1.0.tgz
