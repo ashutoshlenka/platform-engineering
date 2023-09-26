@@ -1,0 +1,15 @@
+image:
+  repository: your-nodejs-image
+  tag: latest
+
+replicaCount: 3
+
+service:
+  name: nodejs-service
+  port: 80
+  targetPort: 3000
+
+ingress:
+  enabled: false
+  host: your-domain.com
+  path: /
