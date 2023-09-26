@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  nodejs-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      MONGODB_URI: "mongodb://mongo:27017/mydb"
+      REDIS_URI: "redis://redis:6379"
+    depends_on:
+      - mongo
+      - redis
+
+  mongo:
+    image: mongo:latest
+    container_name: my-mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: mydb
+
+  redis:
+    image: redis:latest
+    container_name: my-redis
+    ports:
+      - "6379:6379"
